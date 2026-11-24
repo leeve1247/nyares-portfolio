@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>NyARES 포트폴리오</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html,body{margin:0}img{max-width:100%}
+
+/* 레이아웃: 한 단 문서. 왼쪽 정렬, 본문 폭 약 46rem, 사례는 네 단계 라벨이 왼쪽 여백에 서는 2열 격자 */
+:root {
+  --bg: #f7f8fa; --surface: #ffffff; --fg: #1b2330; --muted: #5b6676;
+  --line: #d9dee6; --accent: #2f5d50; --accent-soft: #e6efec; --todo: #a8431f; --todo-bg: #fbeee8;
+  --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141922; --surface: #1b222d; --fg: #e6eaf0; --muted: #9aa5b5;
+  --line: #2f3947; --accent: #86c2b0; --accent-soft: #20332f; --todo: #f0a488; --todo-bg: #3a231b; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #141922; --surface: #1b222d; --fg: #e6eaf0; --muted: #9aa5b5;
+  --line: #2f3947; --accent: #86c2b0; --accent-soft: #20332f; --todo: #f0a488; --todo-bg: #3a231b; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.7;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 2.5rem 4rem; }
+main { max-width: 46rem; margin: 0 auto; display: flex; flex-direction: column; gap: 2.75rem; }
+header h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 .4rem; font-weight: 700; letter-spacing: -.01em; }
+header p { margin: 0; color: var(--muted); }
+.lede { font-size: 1.08rem; color: var(--fg); margin-top: .9rem; }
+section { display: flex; flex-direction: column; gap: 1rem; }
+h2 { font-size: 1.3rem; margin: 0; padding-bottom: .45rem; border-bottom: 2px solid var(--fg); font-weight: 700; text-wrap: balance; }
+h3 { font-size: 1.08rem; margin: 0; font-weight: 600; text-wrap: balance; }
+h3 small { display: block; font-family: var(--mono); font-size: .78rem; color: var(--muted); font-weight: 400; margin-top: .15rem; }
+p, ul, ol { margin: 0; } ul, ol { padding-left: 1.2rem; display: flex; flex-direction: column; gap: .35rem; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: .9em; background: var(--accent-soft); padding: .05em .3em; border-radius: 3px; }
+.tw { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+th, td { text-align: left; vertical-align: top; padding: .55rem .7rem; border-bottom: 1px solid var(--line); }
+thead th { font-weight: 600; color: var(--muted); font-size: .82rem; border-bottom: 1px solid var(--fg); }
+tbody th { font-weight: 600; white-space: nowrap; width: 1%; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.case { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+.steps { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: .9rem 1rem; margin: 0; }
+.steps dt { font-weight: 600; color: var(--accent); font-size: .9rem; }
+.steps dd { margin: 0; min-width: 0; display: flex; flex-direction: column; gap: .45rem; }
+@media (max-width: 34rem) { .steps { grid-template-columns: 1fr; gap: .25rem; } .steps dd { margin-bottom: .7rem; } }
+.todo { color: var(--todo); background: var(--todo-bg); padding: .05em .35em; border-radius: 3px; font-size: .92em; }
+figure { margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+figcaption { font-size: .86rem; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1rem; }
+.stat { border-top: 2px solid var(--accent); padding-top: .5rem; }
+.stat b { display: block; font-family: var(--mono); font-size: 1.55rem; font-weight: 500; line-height: 1.2; }
+.stat span { color: var(--muted); font-size: .86rem; }
+header .scope { font-size: .88rem; color: var(--muted); margin-top: .9rem; }
+</style>
+
+</head>
+<body>
+<main>
+<header>
+  <h1>NyARES(냐레스) 포트폴리오</h1>
+  <p>2026 넷마블네오 AI 인턴십 · AI Game Maker 지원 · 노기현</p>
+  <p class="lede">고양이 병사들의 자동 전투를 지켜보며 원정을 이어 가는 PC 오토배틀 로그라이트입니다. 3인 팀의 팀장으로, AI와 함께 기획부터 Steam 데모 배포까지 진행했습니다.</p>
+  <p class="scope">작성 범위. 이 문서의 구성과 문장은 생성형 AI가 작성했고, 본인은 내용이 사실과 맞는지 확인했습니다.</p>
+</header>
+
+<section>
+  <h2>1. 프로젝트 개요</h2>
+  <div class="tw"><table><tbody>
+    <tr><th>팀</th><td>3인 팀 LMG, 본인은 팀장</td></tr>
+    <tr><th>소속 과정</th><td>AI·SW마에스트로 제17기 (2026.05 ~ 2026.12)</td></tr>
+    <tr><th>개발 기간</th><td>2026년 5월(기획 시작) ~ 진행 중. 현재 저장소의 첫 기록은 7월 19일</td></tr>
+    <tr><th>엔진·플랫폼</th><td>Unity 6(C#), Windows·macOS</td></tr>
+    <tr><th>현재 상태</th><td>Steam 상점 페이지 공개, 데모 배포 중 (최신 0.3.2, 2026년 11월 22일)</td></tr>
+    <tr><th>Steam 상점</th><td><a href="https://store.steampowered.com/app/5439590">store.steampowered.com/app/5439590</a></td></tr>
+    <tr><th>트레일러</th><td><a href="https://www.youtube.com/watch?v=dMdwuePBB3o">youtube.com/watch?v=dMdwuePBB3o</a></td></tr>
+    <tr><th>리뷰 영상</th><td><a href="https://www.youtube.com/watch?v=SfSh7quP708&amp;t=2s">youtube.com/watch?v=SfSh7quP708</a><br>유튜브 채널 겜믹스(평균남자)의 리뷰. 유료 프로모션으로 진행</td></tr>
+  </tbody></table></div>
+  <figure><img src="shots/battle.jpg" alt="초원 전장에서 고양이 병사들이 자동으로 싸우는 전투 화면" width="1600" height="900"><figcaption>전투 화면. 양쪽 병사가 자동으로 싸우고, 플레이어는 전투 전의 배치와 강화로 결과를 바꿉니다.</figcaption></figure>
+</section>
+
+<section>
+  <h2>2. 내 기여 범위</h2>
+  <div class="tw"><table>
+    <thead><tr><th>메인 브랜치 변경 (2026.07.19 ~ 11.24)</th><th>건수</th><th>비율</th></tr></thead>
+    <tbody>
+    <tr><td>본인</td><td class="num">1,028</td><td class="num">70.5%</td></tr>
+    <tr><td>팀원 A</td><td class="num">112</td><td class="num">7.7%</td></tr>
+    <tr><td>팀원 B</td><td class="num">238</td><td class="num">16.3%</td></tr>
+    <tr><td>자동화 봇</td><td class="num">80</td><td class="num">5.5%</td></tr>
+    <tr><td>합계</td><td class="num">1,458</td><td class="num">100%</td></tr>
+    </tbody></table></div>
+  <div class="tw"><table>
+    <thead><tr><th>영역</th><th>본인</th><th>팀원</th></tr></thead>
+    <tbody>
+    <tr><th>방향·일정</th><td>팀장. 기획 방향과 역할 분담 결정, 회의 진행, Steam 오토배틀러 축제 일정에서 거꾸로 계산한 데모 일정 수립</td><td>기획안 제안과 검토</td></tr>
+    <tr><th>구현</th><td>화면 연출(인장 배치판 구현과 상호작용 등), 픽셀 아트 리터칭, 성능 개선, 저장 호환</td><td>팀원 A: 전투 로직, 시스템 기획, 월드맵<br>팀원 B: 게임 안팎의 UI, 밸런스, 편성 편집 도구, 튜토리얼</td></tr>
+    <tr><th>아트</th><td>생성형 AI로 고양이 병사 시안을 탐색하고 Aseprite에서 픽셀 아트를 직접 다듬어 적용. 아트 변환 파이프라인</td><td>팀원 B: UI 연출 일부</td></tr>
+    <tr><th>사운드·세계관</th><td>—</td><td>팀원 A: BGM 30여 곡, 효과음, 세계관·스토리</td></tr>
+    <tr><th>현지화</th><td>17개 언어 번역. 번역과 검수 모두 AI에게 맡겼고, 글자가 화면 밖으로 넘치지 않는지와 단어 선택이 맞는지를 중점으로 확인하도록 지시. 사람이 직접 읽는 검수는 하지 않음</td><td>—</td></tr>
+    <tr><th>출시·홍보</th><td>Steam 상점 페이지, 다국어 트레일러, Windows·macOS 데모 배포, MCN 섭외, 유료 마케팅 집행</td><td>팀원 A: 프레스킷 초안<br>팀원 B: 쇼츠 영상</td></tr>
+    </tbody></table></div>
+  <figure><img src="shots/imprint.jpg" alt="병사 초상과 색깔 칸이 놓인 인장 조합판 화면" width="1600" height="900"><figcaption>인장 조합판. 병사를 놓은 판 위에 인장(강화 효과 묶음)을 겹쳐 어느 병사가 어떤 효과를 받는지 정합니다.</figcaption></figure>
+</section>
+
+<section>
+  <h2>3. AI 활용 사례</h2>
+  <p>세 사례 모두 같은 순서로 적었습니다. 문제, AI에게 맡긴 일, 내가 판단·검증한 일, 결과.</p>
+
+  <article class="case">
+    <h3>사례 1. "최적화해야 한다"는 말을 측정으로 바꾸기<small>2026년 11월 22~23일</small></h3>
+    <dl class="steps">
+      <dt>문제</dt>
+      <dd><p>11월 22일 회의에서 "이제 최적화도 해야 한다"는 말이 나왔습니다. 비슷한 말이 10월 16일, 10월 31일, 11월 13일 회의에도 있었습니다. 코드 대부분을 AI가 쓰기 때문에 어디가 느린지 사람이 코드를 읽어서는 알기 어렵고, 느낌만으로 고치기 시작하면 어디까지 고칠지 정할 수 없습니다.</p></dd>
+      <dt>AI에게 맡긴 일</dt>
+      <dd><ul>
+        <li>측정. 데모의 14개 화면을 같은 조건으로 띄우고 화면마다 연속 150프레임을 Unity 프로파일러로 기록해 집계</li>
+        <li>수정. 측정에서 찾은 낭비 다섯 군데를 고침. 화면이 가만히 있어도 매 프레임 버튼 위치를 다시 계산하고 문자열을 새로 만들던 코드</li>
+        <li>확인. 같은 문제가 다시 생기면 실패하는 테스트 2개를 작성하고, 수정 전후 10개 화면을 같은 설정으로 찍어 픽셀 단위로 비교</li>
+        <li>정리. 결과를 화면별 수치 표와 문서로 만들고, 실제 게임에서 문제가 되는 수준인지 판단할 근거를 제시</li>
+      </ul><p>측정, 분석, 수정은 거의 전부 AI가 했습니다.</p></dd>
+      <dt>내가 판단·검증한 일</dt>
+      <dd><ul>
+        <li>"최적화해 줘"라고 시키지 않았습니다. "실제 게임에서 문제가 되는지 판단할 수 있게 해 달라"고 요청했습니다.</li>
+        <li>결과를 제가 읽을 수 있는 형태로 바꿔 달라고 했습니다. 프로파일러 원본 대신 화면별 수치 표와 결론을 받았습니다.</li>
+      </ul><p>제가 한 일은 이 두 가지입니다. 아래 결론과 고칠 곳은 AI의 측정에서 나왔습니다.</p></dd>
+      <dt>결과</dt>
+      <dd><p>결론은 "지금 데모에 프레임을 떨어뜨리는 병목은 없다"였습니다. 14개 화면의 프레임 시간 중앙값이 1.5~6.8ms로, 60fps 기준인 16.7ms 안입니다. 수정으로 줄어든 것은 프레임당 메모리 할당입니다. 아래는 14개 화면 중 세 곳입니다.</p>
+        <div class="tw"><table>
+        <thead><tr><th>화면</th><th>프레임당 메모리 할당 (전)</th><th>(후)</th></tr></thead>
+        <tbody>
+          <tr><td>초원 전투</td><td class="num">18,518 B</td><td class="num">2,766 B</td></tr>
+          <tr><td>심장 제단</td><td class="num">19,828 B</td><td class="num">236 B</td></tr>
+          <tr><td>상점</td><td class="num">13,318 B</td><td class="num">0 B</td></tr>
+        </tbody></table></div>
+        <p>Unity 에디터에서 잰 값이고, 수정 전 값에는 에디터에서만 생기는 할당이 일부 섞여 있습니다. 프레임 시간 차이는 측정 오차 안입니다. 측정은 모두 macOS에서 했고 Windows와 저사양 PC는 재지 못했습니다.</p>
+        <p>이어서 화면이 바뀔 때 한 프레임에 몰려 있던 화면 생성 작업을 여러 프레임에 나눴습니다. 전투 전 배치 화면으로 넘어갈 때 가장 긴 프레임이 535~900ms에서 317~360ms로 줄었습니다. 전환에 걸리는 전체 시간은 줄지 않았습니다.</p></dd>
+    </dl>  </article>
+
+  <article class="case">
+    <h3>사례 2. 데모를 업데이트해도 하던 원정을 이어 가게 하기<small>2026년 11월 22일</small></h3>
+    <dl class="steps">
+      <dt>문제</dt>
+      <dd><p>데모를 0.3.1에서 0.3.2로 올리자, 0.3.1에서 진행하던 원정(한 판의 진행 상태)을 0.3.2에서 이어 할 수 없었습니다. 원인은 저장 파일에 적어 두는 호환 확인 값이었습니다. 병사 편성과 수치 데이터 전체의 해시(내용이 조금만 달라도 바뀌는 값)를 쓰고 있어서, 공격력 숫자나 번역 문구만 고쳐도 이전 저장이 전부 거부됐습니다. 데모를 업데이트할 때마다 플레이어의 진행이 끊길 수 있는 기준이었습니다.</p></dd>
+      <dt>AI에게 맡긴 일</dt>
+      <dd><ul>
+        <li>0.3.1 저장이 거부되는 경로를 찾아 수정</li>
+        <li>호환 테스트 작성. 완료 조건은 "이전 버전에서 저장한 원정을 새 빌드에서 이어 갈 수 있다"로 전달</li>
+      </ul><p>구체적인 구현과 테스트 코드는 AI가 작성했습니다.</p></dd>
+      <dt>내가 판단·검증한 일</dt>
+      <dd><ul>
+        <li>0.3.1 저장을 허용하는 수정에서 끝내지 않고 기준을 바꾸기로 했습니다. 배포할 때마다 바뀌는 해시 대신, 저장 형식이 달라질 때만 사람이 올리는 호환 버전을 저장 파일에 적게 했습니다. 수치나 번역이 바뀌어도 이어 할 수 있습니다.</li>
+        <li>이미 배포한 0.3.1과 0.3.2의 저장도 계속 받기로 했습니다. 두 버전이 Windows와 macOS에서 기록한 해시 4개를 목록에 넣어 첫 호환 버전과 같게 취급합니다.</li>
+        <li>테스트가 두 방향을 모두 확인하는지 봤습니다. 이전 해시 4개로 저장한 원정은 복원되고, 모르는 버전이나 빈 값은 거부되어야 합니다.</li>
+      </ul></dd>
+      <dt>결과</dt>
+      <dd><p>0.3.1 저장을 허용하는 수정과 기준 변경을 같은 날 따로 합쳤습니다. 0.3.1에서 하던 원정을 0.3.2에서 이어 할 수 있고, 이후 배포에서는 저장 형식을 바꾸지 않는 한 호환을 위해 따로 할 일이 없습니다. 그래도 이어 할 수 없는 저장은 지우지 않고 보관한 뒤 한 번만 알려 줍니다(11월 16일에 넣은 처리).</p></dd>
+    </dl>  </article>
+
+  <article class="case">
+    <h3>사례 3. 기획 의견이 갈릴 때 각자 AI로 시제품을 만들어 비교하기<small>2026년 11월 23일</small></h3>
+    <dl class="steps">
+      <dt>문제</dt>
+      <dd><p>플레이어가 잘 쓰지 않는 병사를 다시 쓰게 만드는 근본적인 해결책을 찾는 회의였습니다. 레벨이 높은 병사와 낮은 병사를 묶어 주자는 데까지는 의견이 모였습니다. 묶는 방식에서 제 안과 팀원 두 명의 안이 갈렸고, 말로는 결론이 나지 않았습니다.</p></dd>
+      <dt>AI에게 맡긴 일</dt>
+      <dd><ul>
+        <li>아이디어 넓히기. 후보를 좁히기 전, 방안을 여럿 펼쳐 보는 단계에서만 AI를 썼습니다. 회의 중 공유 문서에 후보 16개가 모였습니다.</li>
+        <li>시제품 구현. 두 안을 각자 AI로 완성본에 가깝게 만듭니다.</li>
+      </ul></dd>
+      <dt>내가 판단·검증한 일</dt>
+      <dd><ul>
+        <li>후보 16개는 AI 없이 팀 투표로 3개로 줄였습니다. 재미있어 보여도 이미 복잡한 시스템을 더 어렵게 만드는 후보는 논의에서 빠졌습니다.</li>
+        <li>묶는 방식은 더 논의하지 않고 시제품으로 고르자고 제안했고, 팀이 동의했습니다. AI로 만드는 비용이 낮아져 회의를 한 번 더 하는 것보다 만들어 보는 편이 빠르다고 판단했습니다.</li>
+        <li>비교할 상황을 미리 정했습니다. 병사가 꽤 모인 중후반에 레벨이 높은 병사 하나가 거의 쓰러진 상황을 두 시제품에서 똑같이 만들어 플레이합니다. 어느 안을 넣을지는 AI의 평가가 아니라 팀원이 해 본 결과로 정합니다.</li>
+      </ul></dd>
+      <dt>결과</dt>
+      <dd><p>11월 24일 기준으로 시제품은 만들어 둔 상태이고, 팀이 함께 해 보고 고르는 일은 아직 남아 있습니다.</p></dd>
+    </dl>  </article>
+</section>
+
+<section>
+  <h2>4. 작업 방식</h2>
+  <p>다른 사람이 같은 방식으로 일할 수 있게 순서대로 적습니다. 도구는 Claude와 Codex 데스크톱 앱입니다.</p>
+  <ol>
+    <li><strong>기록을 저장소에 모읍니다.</strong> 회의 녹음을 정리한 회의록이 저장소에 자동으로 올라오고(봇이 올린 변경 80건), 결정 사항은 저장소 안의 LLM 위키에 반영됩니다. LLM 위키는 AI와 사람이 함께 읽는 프로젝트 문서 모음입니다.</li>
+    <li><strong>역기획서로 현재 상태를 확인합니다.</strong> 역기획서는 기획 의도가 아니라 실제 빌드가 어떻게 동작하는지를 측정해 적은 문서입니다. 정한 것(위키)과 구현된 것(역기획서)을 대조하고, 어긋난 곳은 따로 목록으로 관리합니다.</li>
+    <li><strong>무엇을 만들지는 사람이 정합니다.</strong> 팀 회의나 혼자 숙고하는 시간을 거쳐 결정합니다.</li>
+    <li><strong>작업 하나에 AI 세션 하나를 엽니다.</strong> 세션마다 작업 보고를 받고, 보고를 보며 방향을 고쳐 지시합니다.</li>
+    <li><strong>끝난 작업은 둘로 나눕니다.</strong> 팀 결정이 필요한 것은 브랜치에 남겨 회의에서 보여 주고, 결정이 끝난 것은 바로 메인 브랜치에 합칩니다. 메인 브랜치 하나와 수명이 짧은 작업 브랜치만 두는 트렁크 기반 개발입니다. 메인에 직접 올리는 것은 막아 두었고, 모든 변경은 AI 자동 리뷰를 거친 뒤 한 건으로 합쳐집니다.</li>
+    <li><strong>작업 규칙은 <code>AGENTS.md</code> 한 파일에 둡니다.</strong> 저장소에 두는 AI용 작업 지침입니다. Claude와 Codex, 자동 리뷰 봇이 같은 파일을 읽습니다. 예를 들어 "짧은 지시를 받아도 정해진 작업 절차를 생략하지 않는다", "플레이어에게 보이는 한국어 문구를 고치면 영어·일본어 번역도 함께 넣는다", "순서를 틀리면 복구가 비싼 작업은 절차 문서를 먼저 읽는다" 같은 규칙이 있습니다.</li>
+  </ol>
+  <figure><img src="shots/workflow.png" alt="제작과 검증, 게임 실행부, 플레이 데이터 수집과 분석의 세 영역으로 나눈 프로젝트 구성도" width="1600" height="985"><figcaption>프로젝트 구성도. 왼쪽이 이 장에서 설명한 제작과 검증 환경이고, 플레이 데이터가 다시 다음 빌드로 돌아옵니다.</figcaption></figure>
+</section>
+
+<section>
+  <h2>5. 성과</h2>
+  <div class="stats">
+    <div class="stat"><b>1,028건</b><span>내가 메인 브랜치에 합친 변경. 팀 전체 1,458건의 약 70% (7월 19일 ~ 11월 24일)</span></div>
+    <div class="stat"><b>15개</b><span>10월 27일 ~ 11월 22일, 27일 동안 낸 데모 버전 (Windows·macOS)</span></div>
+    <div class="stat"><b>17개</b><span>지원 언어</span></div>
+    <div class="stat"><b>7,800회</b><span>트레일러 조회수 (11월 24일 기준)</span></div>
+    <div class="stat"><b>128개</b><span>Steam 찜 목록 (11월 24일 기준)</span></div>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>팀 전체 월별 변경</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th></tr></thead>
+    <tbody><tr><td>건수</td><td class="num">137</td><td class="num">270</td><td class="num">310</td><td class="num">407</td><td class="num">334</td></tr></tbody>
+  </table></div>
+  <figure><img src="shots/steam.jpg" alt="Steam 상점의 냐레스 페이지. 게임플레이 영상과 소개 글이 보인다" width="1600" height="794"><figcaption>Steam 상점 페이지.</figcaption></figure>
+</section>
+
+<section>
+  <h2>6. 그 외 프로젝트</h2>
+  <p><strong>커뮤니티 서비스 클론</strong> (개인 프로젝트, 2024년 8월 ~ 2025년 12월, 운영하지 않음). 백엔드 서버 개발을 공부하며 혼자 만들었습니다. Spring Boot와 JPA로 게시글·댓글·좋아요 API를 구현하고, 조회수 갱신을 Redis에 모아 처리했으며, 쓰이지 않는 첨부 이미지를 스케줄러로 정리했습니다. OIDC 인증 서버와 Keycloak용 네이버 로그인 확장을 구현했습니다. 프런트엔드는 React로 만들었고 전체를 Docker Compose로 구성했습니다.</p>
+</section>
+</main>
+</body>
+</html>
